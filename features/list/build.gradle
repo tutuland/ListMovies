@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.tutuland.listmovies.list'
+    compileSdk = libs.versions.compileSdk.get() as Integer
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get() as Integer
+        targetSdk = libs.versions.targetSdk.get() as Integer
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":features:favorite")
+    implementation project(":features:movie")
+    implementation libs.bundles.feature
+    testImplementation libs.bundles.test
+}

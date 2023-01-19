@@ -1,0 +1,99 @@
+[versions]
+# SDK Versions
+minSdk = "21"
+targetSdk = "33"
+compileSdk = "33"
+
+# Plugin Versions
+agp = "7.4.0"
+kotlin = "1.7.21"
+
+# App dependencies
+android-material = "1.7.0" # https://maven.google.com/web/index.html?q=com.google.android.material#com.google.android.material:material
+androidx-appcompat = "1.6.0" # https://maven.google.com/web/index.html?q=appCompat#androidx.appcompat:appcompat
+androidx-constraintlayout = "2.1.4" # https://maven.google.com/web/index.html?q=constraintlayout#androidx.constraintlayout:constraintlayout
+androidx-core-ktx = "1.9.0" # https://maven.google.com/web/index.html?q=core-ktx#androidx.core:core-ktx
+androidx-lifecycle-runtime-ktx = "2.5.1" # https://maven.google.com/web/index.html?q=lifecycle-runtime-ktx#androidx.lifecycle:lifecycle-runtime-ktx
+androidx-swiperefreshlayout = "1.1.0" # https://maven.google.com/web/index.html?q=refresh#androidx.swiperefreshlayout:swiperefreshlayout
+coil = "2.2.2" # https://github.com/coil-kt/coil/releases
+coroutines = "1.6.4" # https://github.com/Kotlin/kotlinx.coroutines/releases
+junit = "4.13.2" # https://github.com/junit-team/junit4/releases
+koin = "3.3.2" # https://github.com/InsertKoinIO/koin/tags
+okhttp = "4.10.0" # https://square.github.io/okhttp/#releases
+retrofit = "2.9.0" # https://github.com/square/retrofit/tags
+room = "2.5.0" # https://developer.android.com/jetpack/androidx/releases/room
+
+# Test dependencies
+androidx-test-core = "1.5.0" # https://maven.google.com/web/index.html?q=androidx.test#androidx.test:core-ktx
+androidx-test-junit = "1.1.5" # https://maven.google.com/web/index.html?q=androidx.test#androidx.test.ext:junit-ktx
+espresso = "3.5.1" # https://developer.android.com/jetpack/androidx/releases/test
+mockk = "1.13.3" # https://github.com/mockk/mockk/releases
+roboletric = "4.9.2" # https://github.com/robolectric/robolectric/releases
+turbine = "0.12.1" # https://github.com/cashapp/turbine/releases
+
+[libraries]
+# App dependencies
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+
+# Test dependencies
+androidx-test-core = { module = "androidx.test:core-ktx", version.ref = "androidx-test-core" }
+androidx-test-junit = { module = "androidx.test.ext:junit-ktx", version.ref = "androidx-test-junit" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espresso" }
+junit = { module = "junit:junit", version.ref = "junit" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+okhttp-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+roboletric = { module = "org.robolectric:robolectric", version.ref = "roboletric" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+
+[bundles]
+feature = [
+    "android-material",
+    "androidx-appcompat",
+    "androidx-constraintlayout",
+    "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-swiperefreshlayout",
+    "coil",
+    "coroutines-core",
+    "koin-android",
+    "retrofit-core",
+    "retrofit-gson",
+    "room-ktx",
+    "room-runtime",
+]
+test = [
+    "androidx-test-core",
+    "androidx-test-junit",
+    "coroutines-test",
+    "junit",
+    "mockk",
+    "okhttp-mockwebserver",
+    "roboletric",
+    "turbine",
+]
+androidTest = [
+    "androidx-test-core",
+    "androidx-test-junit",
+    "coroutines-test",
+    "espresso-core",
+    "espresso-contrib",
+    "koin-test",
+    "koin-junit4",
+]
