@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".ListMoviesApp"
@@ -14,6 +15,7 @@
         tools:targetApi="33">
         <activity
             android:name=".list.presentation.ListActivity"
+            android:theme="@style/Theme.List"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

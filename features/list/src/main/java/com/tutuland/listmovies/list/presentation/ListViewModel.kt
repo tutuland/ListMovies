@@ -22,16 +22,15 @@ class ListViewModel(
 
     fun viewStarted() {
         viewModelScope.launch {
-            runCatching {
-                showLoading()
-                val content = getList()
-                showContent(content)
-            }.onFailure { showRetry() }
+            fetchContent()
         }
     }
 
     fun itemClicked(item: ListItem) {
-        viewModelScope.launch { toggleFavorite(item) }
+        viewModelScope.launch {
+            toggleFavorite(item)
+            fetchContent()
+        }
     }
 
     fun filterTyped(filter: String) {
@@ -39,15 +38,21 @@ class ListViewModel(
     }
 
     private fun showLoading() {
-        _state.value = _state.value.copy(isLoading = true)
+        _state.value = _state.value.copy(showLoading = true)
     }
 
     private fun showRetry() {
-        _state.value = _state.value.copy(isLoading = false, showRetry = true, _items = emptyList())
+        _state.value = _state.value.copy(showLoading = false, showRetry = true, _items = listOf())
     }
 
     private fun showContent(content: List<ListItem>) {
-        _state.value = _state.value.copy(isLoading = false, showRetry = false, _items = content)
+        _state.value = _state.value.copy(showLoading = false, showRetry = false, _items = content)
     }
+
+    private suspend fun fetchContent() = runCatching {
+        showLoading()
+        val content = getList()
+        showContent(content)
+    }.onFailure { showRetry() }
 }
 

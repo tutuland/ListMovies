@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="list_activity_title">List Movies</string>
+    <string name="list_filter_hint">Busque por título ou ano</string>
+    <string name="list_header1">Resultados</string>
+    <string name="list_header2">Explore seus filmes favoritos</string>
+    <string name="list_item_imdb">IMDb</string>
+    <string name="list_retry">Recarregar filmes</string>
+</resources>

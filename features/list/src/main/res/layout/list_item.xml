@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/list_padding_medium"
+    android:background="@color/background_dark">
+
+    <ImageView
+        android:id="@+id/list_item_image"
+        android:layout_width="@dimen/list_poster_width"
+        android:layout_height="@dimen/list_poster_height"
+        android:background="@color/grey_light"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_item_age"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_small"
+        android:background="@color/brand_primary"
+        android:padding="@dimen/list_padding_small"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/list_item_image"
+        app:layout_constraintStart_toEndOf="@id/list_item_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="13+" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/list_item_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_small"
+        android:layout_marginEnd="@dimen/list_padding_small"
+        android:padding="@dimen/list_padding_small"
+        android:src="@drawable/ic_favorite_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_item_title"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/list_padding_medium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/list_item_image"
+        app:layout_constraintTop_toBottomOf="@id/list_item_favorite"
+        tools:text="The Chronicles of Narnia: The Lion, the Witch and the Wardrobe " />
+
+    <TextView
+        android:id="@+id/list_item_released"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_small"
+        android:textColor="@color/grey_light"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/list_item_title"
+        app:layout_constraintTop_toBottomOf="@id/list_item_title"
+        tools:text="(2005)" />
+
+    <TextView
+        android:id="@+id/list_item_duration"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/list_padding_medium"
+        android:textColor="@color/grey_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/list_item_released"
+        app:layout_constraintStart_toEndOf="@id/list_item_released"
+        tools:text="2h 23m" />
+
+    <TextView
+        android:id="@+id/list_item_imdb"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_large"
+        android:background="@color/background_light"
+        android:padding="@dimen/list_padding_small"
+        android:text="@string/list_item_imdb"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/list_item_released"
+        app:layout_constraintTop_toBottomOf="@id/list_item_released" />
+
+    <TextView
+        android:id="@+id/list_item_resolution"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/list_padding_medium"
+        android:background="@color/background_light"
+        android:padding="@dimen/list_padding_small"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/list_item_imdb"
+        app:layout_constraintStart_toEndOf="@id/list_item_imdb"
+        tools:text="HD" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

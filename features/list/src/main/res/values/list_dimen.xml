@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_filter_corner">12dp</dimen>
+    <dimen name="list_poster_height">240dp</dimen>
+    <dimen name="list_poster_width">160dp</dimen>
+    <dimen name="list_padding_small">8dp</dimen>
+    <dimen name="list_padding_medium">16dp</dimen>
+    <dimen name="list_padding_large">24dp</dimen>
+</resources>
