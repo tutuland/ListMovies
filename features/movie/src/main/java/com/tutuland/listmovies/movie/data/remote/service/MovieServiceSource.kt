@@ -1,10 +1,9 @@
-package com.tutuland.listmovies.movie.data.remote
+package com.tutuland.listmovies.movie.data.remote.service
 
-import com.tutuland.listmovies.movie.data.remote.service.MoviePayload
-import com.tutuland.listmovies.movie.data.remote.service.MoviesService
+import com.tutuland.listmovies.movie.data.remote.MovieRemoteSource
 import com.tutuland.listmovies.movie.domain.model.Movie
 
-class MovieRemoteSourceImpl(private val service: MoviesService) : MovieRemoteSource {
+class MovieServiceSource(private val service: MoviesService) : MovieRemoteSource {
     override suspend fun getMovies(): List<Movie> {
         val response = service.getMovies()
         return response.results.orEmpty().map(::toMovie)

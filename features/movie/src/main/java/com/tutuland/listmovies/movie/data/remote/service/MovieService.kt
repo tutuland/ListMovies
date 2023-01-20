@@ -10,7 +10,7 @@ const val BASE_URL = "http://demo5993557.mockable.io/"
 
 interface MoviesService {
     @GET("movies")
-    suspend fun getMovies(): MoviesResponse
+    suspend fun getMovies(): MovieResponse
 }
 
 fun createMoviesService(baseUrl: HttpUrl = BASE_URL.toHttpUrl()): MoviesService = Retrofit.Builder()
