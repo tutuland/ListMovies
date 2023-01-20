@@ -1,4 +1,4 @@
-package com.tutuland.listmovies.movie.data.model
+package com.tutuland.listmovies.movie.data.remote.service
 
 import com.google.gson.annotations.SerializedName
 
