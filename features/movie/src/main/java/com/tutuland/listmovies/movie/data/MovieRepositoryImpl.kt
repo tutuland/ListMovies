@@ -5,13 +5,10 @@ import com.tutuland.listmovies.movie.domain.model.Movie
 
 class MovieRepositoryImpl : MovieRepository {
     override suspend fun getMovies(): List<Movie> {
-        flip = !flip
-        if (flip) throw Exception()
         return listOf(fakeMoview1, fakeMoview2, fakeMoview3)
     }
 }
 
-var flip = true
 val fakeMoview1 = Movie(
     id = 1,
     title = "Puss in Boots: The Last Wish",

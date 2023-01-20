@@ -13,6 +13,7 @@ android-material = "1.7.0" # https://maven.google.com/web/index.html?q=com.googl
 androidx-appcompat = "1.6.0" # https://maven.google.com/web/index.html?q=appCompat#androidx.appcompat:appcompat
 androidx-constraintlayout = "2.1.4" # https://maven.google.com/web/index.html?q=constraintlayout#androidx.constraintlayout:constraintlayout
 androidx-core-ktx = "1.9.0" # https://maven.google.com/web/index.html?q=core-ktx#androidx.core:core-ktx
+androidx-datastore = "1.0.0" # https://maven.google.com/web/index.html?q=datastore#androidx.datastore:datastore-preferences
 androidx-lifecycle-runtime-ktx = "2.5.1" # https://maven.google.com/web/index.html?q=lifecycle-runtime-ktx#androidx.lifecycle:lifecycle-runtime-ktx
 androidx-swiperefreshlayout = "1.1.0" # https://maven.google.com/web/index.html?q=refresh#androidx.swiperefreshlayout:swiperefreshlayout
 coil = "2.2.2" # https://github.com/coil-kt/coil/releases
@@ -37,6 +38,7 @@ android-material = { module = "com.google.android.material:material", version.re
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
@@ -68,6 +70,7 @@ feature = [
     "androidx-appcompat",
     "androidx-constraintlayout",
     "androidx-core-ktx",
+    "androidx-datastore",
     "androidx-lifecycle-runtime-ktx",
     "androidx-swiperefreshlayout",
     "coil",
