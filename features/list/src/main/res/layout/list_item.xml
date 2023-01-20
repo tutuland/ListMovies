@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/list_padding_medium"
+    android:layout_marginHorizontal="@dimen/list_padding_medium"
+    android:layout_marginVertical="@dimen/list_padding_small"
     android:background="@color/background_dark">
 
     <ImageView

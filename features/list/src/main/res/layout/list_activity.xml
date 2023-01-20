@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/list_padding_medium"
     android:theme="@style/Theme.List"
     tools:context=".presentation.ListActivity">
 
@@ -13,6 +12,7 @@
         style="@style/TextAppearance.Material3.TitleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_medium"
         android:text="@string/list_activity_title"
         app:layout_constraintBottom_toTopOf="@id/list_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/list_padding_medium"
+        android:layout_marginHorizontal="@dimen/list_padding_medium"
         android:hint="@string/list_filter_hint"
         app:boxBackgroundColor="@color/grey_lighter"
         app:boxCornerRadiusBottomEnd="@dimen/list_filter_corner"
@@ -51,10 +52,10 @@
         style="@style/TextAppearance.Material3.TitleMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/list_padding_large"
+        android:layout_marginTop="@dimen/list_padding_medium"
         android:text="@string/list_header1"
         app:layout_constraintBottom_toTopOf="@id/list_header2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/list_input_layout"
         app:layout_constraintTop_toBottomOf="@id/list_input_layout" />
 
     <TextView
@@ -65,16 +66,15 @@
         android:layout_marginTop="@dimen/list_padding_small"
         android:text="@string/list_header2"
         app:layout_constraintBottom_toTopOf="@id/list_rv"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/list_header1"
         app:layout_constraintTop_toBottomOf="@id/list_header1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/list_padding_large"
+        android:layout_marginTop="@dimen/list_padding_small"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

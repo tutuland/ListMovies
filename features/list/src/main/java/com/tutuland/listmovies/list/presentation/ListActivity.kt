@@ -1,6 +1,7 @@
 package com.tutuland.listmovies.list.presentation
 
 import android.content.Intent
+import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.tutuland.listmovies.list.databinding.ListActivityBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,10 +34,14 @@ class ListActivity : AppCompatActivity() {
         binding = ListActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         adapter = ListItemAdapter(clickAction = viewModel::itemClicked, linkAction = ::linkClicked)
+        binding.listRv.layoutManager = GridLayoutManager(this, getSpanCount())
         binding.listRv.adapter = adapter
         binding.listInputText.doAfterTextChanged { viewModel.filterTyped(it.toString()) }
         binding.listRetry.setOnClickListener { viewModel.viewStarted() }
     }
+
+    private fun getSpanCount(): Int =
+        if (resources.configuration.orientation == ORIENTATION_PORTRAIT) 1 else 2
 
     private fun renderState(state: ListViewState) {
         binding.listLoading.isVisible = state.showLoading
