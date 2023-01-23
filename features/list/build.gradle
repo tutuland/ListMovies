@@ -30,6 +30,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
     }
 }
 
@@ -37,5 +38,6 @@ dependencies {
     implementation project(":features:favorite")
     implementation project(":features:movie")
     implementation libs.bundles.feature
+    testImplementation libs.androidx.datastore
     testImplementation libs.bundles.test
 }
