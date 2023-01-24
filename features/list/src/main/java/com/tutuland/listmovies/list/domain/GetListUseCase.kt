@@ -5,7 +5,7 @@ import com.tutuland.listmovies.list.domain.model.ListItem
 import com.tutuland.listmovies.movie.domain.MovieRepository
 import com.tutuland.listmovies.movie.domain.model.Movie
 
-class GetListUseCase(
+internal class GetListUseCase(
     private val movieRepository: MovieRepository,
     private val favoriteRepository: FavoriteRepository,
 ) {

@@ -29,7 +29,7 @@ val fixMovie = Movie(
 
 val fixListOfMovies = listOf(fixMovie)
 
-val fixMovieEntity = MovieEntity(
+internal val fixMovieEntity = MovieEntity(
     id = fixId,
     title = fixTitle,
     imageUrl = fixImageUrl,
@@ -40,9 +40,9 @@ val fixMovieEntity = MovieEntity(
     ageRestriction = fixAgeRestriction,
 )
 
-val fixListOfMovieEntities = listOf(fixMovieEntity)
+internal val fixListOfMovieEntities = listOf(fixMovieEntity)
 
-val fixMoviePayload = MoviePayload(
+internal val fixMoviePayload = MoviePayload(
     id = fixId,
     title = fixTitle,
     posterPath = fixImageUrl,
@@ -53,4 +53,4 @@ val fixMoviePayload = MoviePayload(
     ageRestriction = fixAgeRestriction,
 )
 
-val fixMovieResponse = MovieResponse(listOf(fixMoviePayload))
+internal val fixMovieResponse = MovieResponse(listOf(fixMoviePayload))

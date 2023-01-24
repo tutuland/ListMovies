@@ -3,7 +3,7 @@ package com.tutuland.listmovies.movie.data.local.database
 import com.tutuland.listmovies.movie.data.local.MovieLocalSource
 import com.tutuland.listmovies.movie.domain.model.Movie
 
-class MovieDatabaseSource(private val database: MovieDao) : MovieLocalSource {
+internal class MovieDatabaseSource(private val database: MovieDao) : MovieLocalSource {
     override suspend fun getMovies(): List<Movie> {
         return database.getMovies().toDomain()
     }

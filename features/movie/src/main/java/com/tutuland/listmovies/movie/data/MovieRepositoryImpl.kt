@@ -5,7 +5,7 @@ import com.tutuland.listmovies.movie.data.remote.MovieRemoteSource
 import com.tutuland.listmovies.movie.domain.MovieRepository
 import com.tutuland.listmovies.movie.domain.model.Movie
 
-class MovieRepositoryImpl(
+internal class MovieRepositoryImpl(
     private val localSource: MovieLocalSource,
     private val remoteSource: MovieRemoteSource,
 ) : MovieRepository {

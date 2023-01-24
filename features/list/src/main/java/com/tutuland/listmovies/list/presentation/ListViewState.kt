@@ -2,7 +2,7 @@ package com.tutuland.listmovies.list.presentation
 
 import com.tutuland.listmovies.list.domain.model.ListItem
 
-data class ListViewState(
+internal data class ListViewState(
     val showLoading: Boolean = false,
     val showRetry: Boolean = false,
     private val filter: String = "",

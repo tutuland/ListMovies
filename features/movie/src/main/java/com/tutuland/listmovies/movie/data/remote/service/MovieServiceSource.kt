@@ -3,7 +3,7 @@ package com.tutuland.listmovies.movie.data.remote.service
 import com.tutuland.listmovies.movie.data.remote.MovieRemoteSource
 import com.tutuland.listmovies.movie.domain.model.Movie
 
-class MovieServiceSource(private val service: MoviesService) : MovieRemoteSource {
+internal class MovieServiceSource(private val service: MoviesService) : MovieRemoteSource {
     override suspend fun getMovies(): List<Movie> {
         val response = service.getMovies()
         return response.results.orEmpty().map(::toMovie)

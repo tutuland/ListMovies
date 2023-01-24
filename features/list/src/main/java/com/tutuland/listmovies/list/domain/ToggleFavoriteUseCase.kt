@@ -3,7 +3,7 @@ package com.tutuland.listmovies.list.domain
 import com.tutuland.listmovies.favorite.domain.FavoriteRepository
 import com.tutuland.listmovies.list.domain.model.ListItem
 
-class ToggleFavoriteUseCase(
+internal class ToggleFavoriteUseCase(
     private val favoriteRepository: FavoriteRepository,
 ) {
     suspend operator fun invoke(item: ListItem) =

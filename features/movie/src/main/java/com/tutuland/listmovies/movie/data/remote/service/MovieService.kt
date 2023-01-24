@@ -6,14 +6,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-const val BASE_URL = "http://demo5993557.mockable.io/"
+internal const val BASE_URL = "http://demo5993557.mockable.io/"
 
-interface MoviesService {
+internal interface MoviesService {
     @GET("movies")
     suspend fun getMovies(): MovieResponse
 }
 
-fun createMoviesService(baseUrl: HttpUrl = BASE_URL.toHttpUrl()): MoviesService = Retrofit.Builder()
+internal fun createMoviesService(baseUrl: HttpUrl = BASE_URL.toHttpUrl()): MoviesService = Retrofit.Builder()
     .baseUrl(baseUrl)
     .addConverterFactory(GsonConverterFactory.create())
     .build()

@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-fun createMovieDatabase(context: Context): MovieRoomDatabase = Room
+internal fun createMovieDatabase(context: Context): MovieRoomDatabase = Room
     .databaseBuilder(context, MovieRoomDatabase::class.java, "MovieDatabase")
     .fallbackToDestructiveMigration()
     .build()

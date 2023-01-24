@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ListViewModel(
+internal class ListViewModel(
     private val getList: GetListUseCase,
     private val toggleFavorite: ToggleFavoriteUseCase,
 ) : ViewModel() {

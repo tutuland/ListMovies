@@ -2,7 +2,7 @@ package com.tutuland.listmovies.movie.data.remote.service
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviePayload(
+internal data class MoviePayload(
     @SerializedName("id") val id: Long? = 0,
     @SerializedName("title") val title: String? = null,
     @SerializedName("poster_path") val posterPath: String? = null,

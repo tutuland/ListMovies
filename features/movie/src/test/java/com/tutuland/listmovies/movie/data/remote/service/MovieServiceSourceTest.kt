@@ -13,10 +13,10 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class MovieServiceSourceTest {
+internal class MovieServiceSourceTest {
     @MockK
     lateinit var service: MoviesService
-    lateinit var source: MovieServiceSource
+    private lateinit var source: MovieServiceSource
 
     @Before
     fun setup() {

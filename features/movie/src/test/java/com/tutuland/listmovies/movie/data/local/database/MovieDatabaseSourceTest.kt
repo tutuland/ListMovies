@@ -13,7 +13,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class MovieDatabaseSourceTest {
+internal class MovieDatabaseSourceTest {
     @MockK
     lateinit var database: MovieDao
     lateinit var source: MovieDatabaseSource

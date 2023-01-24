@@ -7,7 +7,7 @@ import androidx.datastore.preferences.core.edit
 import com.tutuland.listmovies.favorite.domain.FavoriteRepository
 import kotlinx.coroutines.flow.first
 
-class FavoriteRepositoryImpl(private val dataStore: DataStore<Preferences>) : FavoriteRepository {
+internal class FavoriteRepositoryImpl(private val dataStore: DataStore<Preferences>) : FavoriteRepository {
     override suspend fun getFavoriteFor(id: Long): Boolean {
         val isFavoriteKey = booleanPreferencesKey(id.toString())
         return dataStore.data.first().let { prefs -> prefs[isFavoriteKey] ?: false }

@@ -15,7 +15,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class MovieRepositoryImplTest {
+internal class MovieRepositoryImplTest {
     @MockK
     lateinit var localSource: MovieLocalSource
 

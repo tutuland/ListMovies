@@ -11,7 +11,7 @@ import com.tutuland.listmovies.list.R
 import com.tutuland.listmovies.list.databinding.ListItemBinding
 import com.tutuland.listmovies.list.domain.model.ListItem
 
-class ListItemAdapter(
+internal class ListItemAdapter(
     private val favoriteAction: (ListItem) -> Unit,
     private val imdbAction: (ListItem) -> Unit,
 ) : ListAdapter<ListItem, ListItemAdapter.ListItemHolder>(ListItemDiff()) {

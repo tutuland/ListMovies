@@ -20,7 +20,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 
 @RunWith(AndroidJUnit4::class)
-class ListViewModelTest {
+internal class ListViewModelTest {
     @MockK
     lateinit var getList: GetListUseCase
 
