@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.tutuland.listmovies.list.domain.GetListUseCase
 import com.tutuland.listmovies.list.domain.ToggleFavoriteUseCase
 import com.tutuland.listmovies.list.domain.model.ListItem
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ListViewModel(
@@ -14,7 +16,9 @@ class ListViewModel(
     private val toggleFavorite: ToggleFavoriteUseCase,
 ) : ViewModel() {
     private val _state: MutableStateFlow<ListViewState> = MutableStateFlow(ListViewState())
-    val state: StateFlow<ListViewState> = _state
+    val state = _state.asStateFlow()
+    private val _action: MutableSharedFlow<ListViewAction> = MutableSharedFlow()
+    val action = _action.asSharedFlow()
 
     init {
         viewStarted()
@@ -26,10 +30,16 @@ class ListViewModel(
         }
     }
 
-    fun itemClicked(item: ListItem) {
+    fun favoriteClicked(item: ListItem) {
         viewModelScope.launch {
             toggleFavorite(item)
             fetchContent()
+        }
+    }
+
+    fun imdbClicked(item: ListItem) {
+        viewModelScope.launch {
+            _action.emit(ListViewAction.OpenLink(item.movie.imdbLink))
         }
     }
 

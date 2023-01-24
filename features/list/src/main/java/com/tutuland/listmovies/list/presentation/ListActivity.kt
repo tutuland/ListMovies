@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.tutuland.listmovies.list.databinding.ListActivityBinding
 import kotlinx.coroutines.launch
@@ -24,16 +24,23 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setupViews()
         lifecycleScope.launch {
-            viewModel.state
-                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-                .collect(::renderState)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // .collect() is a suspending function and these flows do not complete.
+                // This is why we need to launch them in two separate coroutines,
+                // or else the first collect would make the second unreachable!
+                launch { viewModel.state.collect(::renderState) }
+                launch { viewModel.action.collect(::executeAction) }
+            }
         }
     }
 
     private fun setupViews() {
         binding = ListActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        adapter = ListItemAdapter(clickAction = viewModel::itemClicked, linkAction = ::linkClicked)
+        adapter = ListItemAdapter(
+            favoriteAction = viewModel::favoriteClicked,
+            imdbAction = viewModel::imdbClicked
+        )
         binding.listRv.layoutManager = GridLayoutManager(this, getSpanCount())
         binding.listRv.adapter = adapter
         binding.listInputText.doAfterTextChanged { viewModel.filterTyped(it.toString()) }
@@ -47,6 +54,10 @@ class ListActivity : AppCompatActivity() {
         binding.listLoading.isVisible = state.showLoading
         binding.listRetry.isVisible = state.showRetry
         adapter.submitList(state.items)
+    }
+
+    private fun executeAction(action: ListViewAction) = when (action) {
+        is ListViewAction.OpenLink -> linkClicked(action.link)
     }
 
     private fun linkClicked(link: String) {

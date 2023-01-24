@@ -12,8 +12,8 @@ import com.tutuland.listmovies.list.databinding.ListItemBinding
 import com.tutuland.listmovies.list.domain.model.ListItem
 
 class ListItemAdapter(
-    private val clickAction: (ListItem) -> Unit,
-    private val linkAction: (String) -> Unit,
+    private val favoriteAction: (ListItem) -> Unit,
+    private val imdbAction: (ListItem) -> Unit,
 ) : ListAdapter<ListItem, ListItemAdapter.ListItemHolder>(ListItemDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemHolder {
@@ -31,8 +31,8 @@ class ListItemAdapter(
             val favoriteDrawable =
                 if (model.isFavorite) R.drawable.ic_favorite_on else R.drawable.ic_favorite_off
             binding.listItemFavorite.setImageResource(favoriteDrawable)
-            binding.listItemFavorite.setOnClickListener { clickAction(model) }
-            binding.listItemImdb.setOnClickListener { linkAction(model.movie.imdbLink) }
+            binding.listItemFavorite.setOnClickListener { favoriteAction(model) }
+            binding.listItemImdb.setOnClickListener { imdbAction(model) }
             binding.listItemImage.load(model.movie.imageUrl)
             binding.listItemTitle.text = model.movie.title
             binding.listItemReleased.text = model.movie.releasedIn
