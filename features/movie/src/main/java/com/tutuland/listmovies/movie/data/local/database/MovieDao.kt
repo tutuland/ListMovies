@@ -7,7 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface MovieDao {
-    @Query("SELECT * FROM MovieEntity ORDER BY id ASC")
+    @Query("SELECT * FROM MovieEntity ORDER BY title ASC")
     suspend fun getMovies(): List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
